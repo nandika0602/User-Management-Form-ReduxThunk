@@ -19,9 +19,14 @@ export const handleChange = (e) => {
   return { type: HANDLE_CHANGE, payload: e };
 };
 
-export const addUser = (num) => {
-  console.log("action add");
-  return { type: ADD_USER, payload: num };
+const adduser1 = (num) => ({
+  type: ADD_USER,
+  payload: num,
+});
+
+export const addUser = (num) => (dispatch, s) => {
+  console.log("action add", s());
+  dispatch(adduser1(num));
 };
 
 export const resetUser = () => {
